@@ -1,5 +1,5 @@
 import express from 'express';
-import  config  from './config'
+import config from './config'
 import mongoose from 'mongoose';
 import cors from 'cors'
 import apartmentRoutes from './routes/apartmentRoute';
@@ -12,9 +12,9 @@ db.on('error', (error) => {
   console.error(`MongoDB connection error: ${error}`);
 });
 
+app.use(cors())
 app.use(express.json())
 
-app.use(cors())
 app.use('/api', apartmentRoutes)
 
 export default app
